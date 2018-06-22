@@ -27,7 +27,7 @@ Auto update your Zibo
 6. Install FMOD by AudioBirdXP;
 7. Install RG mod with texture pack and remove files required from [zibo/object] folder.
 
-If you only have to install Zibo, with out RG mod, simple edit the script and remove lines bellow line 96 (KEEP THE LINES 165 and 168).
+If you only have to install Zibo, without RG mod, simple edit the script and remove lines bellow line 96 (KEEP THE LINES 165 and 168).
 
 Future improvements:
 - Option in execution time for install only Zibo.
