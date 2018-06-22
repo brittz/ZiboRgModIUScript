@@ -71,7 +71,7 @@ zip_ref.close()
 ########
 
 # copy x-camera file for new Zibo folder
-shutil.copy2(ZiboPathRoot+'/B737-800X_old/X-Camera_b738.csv','B737-800X')
+shutil.copy2(ZiboPathRoot+'/B737-800X_old/X-Camera_b738.csv',ZiboPathRoot+'/B737-800X')
 log("Copying X-Camera file from ["+ZiboPathRoot+"B737-800X_old/X-Camera_b738.csv] to ["+ZiboPathRoot+"/B737-800X]\r\n")
 
 # copy liveries
