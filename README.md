@@ -4,8 +4,9 @@ Auto update your Zibo
 
 1. You need the Python installed;
 2. This script needs to be in the same path of ZIP files with the ZIBO and RG MOD;
-3. You need the software 7-Zib installed in you machine. The FMOD audio zip is compressed in some type not supported by the python zip library;
+3. You need the software 7-Zib installed in you machine. The FMOD audio zip is compressed in some type not supported by the python zip library (check if your 7-Zip installation path is as line 92);
 4. You must set the zip files name that you have downloaded:
+
   ZiboPathRoot = "D:/SteamLibrary/steamapps/common/X-Plane 11/Aircraft/Laminar Research"
   ZiboZIP = "B737-800X_3_27l.zip"
   AudioBirdFmod = "AXP IMMERSION PACK 737-800X ZIBO V 1806 REV4.zip"
