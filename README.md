@@ -7,13 +7,17 @@ Auto update your Zibo
 3. You need the software 7-Zib installed in you machine. The FMOD audio zip is compressed in some type not supported by the python zip library (check if your 7-Zip installation path is as line 92);
 4. You must set the zip files name that you have downloaded:
 
-  ZiboPathRoot = "D:/SteamLibrary/steamapps/common/X-Plane 11/Aircraft/Laminar Research"
-  ZiboZIP = "B737-800X_3_27l.zip"
-  AudioBirdFmod = "AXP IMMERSION PACK 737-800X ZIBO V 1806 REV4.zip"
-  RGModZIP = "B737-800_RG_mod FULL- 3.27l.zip"
-  TexturePackRGMod = "TEXTURE PACK_B737-800_RG_mod FULL- 1.0.0f.zip"
+	ZiboPathRoot = "D:/SteamLibrary/steamapps/common/X-Plane 11/Aircraft/Laminar Research"
+	
+	ZiboZIP = "B737-800X_3_27l.zip"
+	
+	AudioBirdFmod = "AXP IMMERSION PACK 737-800X ZIBO V 1806 REV4.zip"
+	
+	RGModZIP = "B737-800_RG_mod FULL- 3.27l.zip"
+	
+	TexturePackRGMod = "TEXTURE PACK_B737-800_RG_mod FULL- 1.0.0f.zip"
 
-What do this script do?
+ What do this script do?
 
 1. Install Zibo and RG Mod in diferents folders, so you can have bouth versions in you X-Plane 11;
 2. Rename with suffix "_old" the folders (with you have) of Zibo and Zibo with RG mod. The names must be [B737-800X] and [B737-800XRG_mod];
