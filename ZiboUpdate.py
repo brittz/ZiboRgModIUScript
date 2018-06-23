@@ -71,8 +71,13 @@ zip_ref.close()
 ########
 
 # copy x-camera file for new Zibo folder
-shutil.copy2(ZiboPathRoot+'/B737-800X_old/X-Camera_b738.csv',ZiboPathRoot+'/B737-800X')
-log("Copying X-Camera file from ["+ZiboPathRoot+"B737-800X_old/X-Camera_b738.csv] to ["+ZiboPathRoot+"/B737-800X]\r\n")
+XCameraFile = ZiboPathRoot+'/B737-800X_old/X-Camera_b738.csv'
+
+if os.path.isfile(XCameraFile):
+    shutil.copy2(XCameraFile, ZiboPathRoot+'/B737-800X')
+    log("Copying X-Camera file from ["+XCameraFile+"] to ["+ZiboPathRoot+"/B737-800X]\r\n")
+else :
+    log("X-Camera file not found\r\n")
 
 # copy liveries
 if os.path.exists(ZiboPathRoot+'/B737-800X/liveries'):
