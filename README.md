@@ -1,4 +1,4 @@
-# ZiboInstallUpdateScript
+# ZiboRgModIUScript
 
 Auto update your Zibo
 
