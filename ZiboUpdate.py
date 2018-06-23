@@ -8,9 +8,10 @@ LogFile = "ZiboUpdateLog.txt"
 # path where your actual Zibo is installed
 dir_path = os.path.dirname(os.path.realpath(__file__))
 ZiboPathRoot = "D:/SteamLibrary/steamapps/common/X-Plane 11/Aircraft/Laminar Research"
-ZiboZIP = "B737-800X_3_27l.zip"
+
+ZiboZIP = "B737-800X_3_27m.zip"
 AudioBirdFmod = "AXP IMMERSION PACK 737-800X ZIBO V 1806 REV4.zip"
-RGModZIP = "B737-800_RG_mod FULL- 3.27l.zip"
+RGModZIP = "B737-800_RG_mod FULL- 3.27m.zip"
 TexturePackRGMod = "TEXTURE PACK_B737-800_RG_mod FULL- 1.0.0f.zip"
 
 #######################################################################################
@@ -62,13 +63,11 @@ if os.path.exists(ZiboPathRoot+'/B737-800XRG_mod'):
     os.rename(ZiboPathRoot+'/B737-800XRG_mod', ZiboPathRoot+'/B737-800XRG_mod_old')
     log('B737-800XRG_mod to B737-800XRG_mod_old renamed\r\n')
 
-# waiting zip files extration
+
 log('extracting new zibo to ['+ZiboZIP+']')
 zip_ref = zipfile.ZipFile(ZiboZIP, 'r')
 zip_ref.extractall(ZiboPathRoot)
 zip_ref.close()
-########
-########
 
 # copy x-camera file for new Zibo folder
 XCameraFile = ZiboPathRoot+'/B737-800X_old/X-Camera_b738.csv'
@@ -109,7 +108,6 @@ copydir(ZiboPathRoot+'/B737-800X/',ZiboPathRoot+'/B737-800XRG_mod/')
 log('removing required files for RG Mod\r\n')
 Files2DeletePath = ZiboPathRoot+'/B737-800XRG_mod/objects'
 
-os.remove(Files2DeletePath+'/738_cockpit_main_2k.obj')
 os.remove(Files2DeletePath+'/738cockpit_yoke_2k_NML.png')
 os.remove(Files2DeletePath+'/738cockpit_yoke_2k_LIT.png')
 os.remove(Files2DeletePath+'/738cockpit_yoke_2k.png')
@@ -188,9 +186,9 @@ copydir('RGMOD_TEMP/objects', ZiboPathRoot+'/B737-800XRG_mod/objects')
 log('copying [RGMOD_TEMP/cockpit_3d] to ['+ZiboPathRoot+'/B737-800XRG_mod/cockpit_3d]\r\n')
 copydir('RGMOD_TEMP/cockpit_3d', ZiboPathRoot+'/B737-800XRG_mod/cockpit_3d')
 log('copying [RGMOD_TEMP/b738.acf] to ['+ZiboPathRoot+'/B737-800XRG_mod]\r\n')
-copydir('RGMOD_TEMP/b738.acf', ZiboPathRoot+'/B737-800XRG_mod')
+shutil.copy2('RGMOD_TEMP/b738.acf', ZiboPathRoot+'/B737-800XRG_mod/b738.acf')
 log('copying [RGMOD_TEMP/b738_cockpit.obj] to ['+ZiboPathRoot+'/B737-800XRG_mod]\r\n')
-copydir('RGMOD_TEMP/b738_cockpit.obj', ZiboPathRoot+'/B737-800XRG_mod')
+shutil.copy2('RGMOD_TEMP/b738_cockpit.obj', ZiboPathRoot+'/B737-800XRG_mod')
 
 # installing rg mod texture
 log('Extracting rg mod texture zip\r\n')
@@ -204,7 +202,7 @@ copydir('TEXTURERGMOD_TEMP/objects', ZiboPathRoot+'/B737-800XRG_mod/objects')
 # in this line will be a question asking for 2k-cockpit texture installation
 # and other custom installs
 
-shutil.rmtree('AudioBirdFmod')
+# shutil.rmtree('AudioBirdFmod')
 shutil.rmtree('RGMOD_TEMP')
 shutil.rmtree('TEXTURERGMOD_TEMP')
 file.close()
