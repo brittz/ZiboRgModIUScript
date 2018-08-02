@@ -2,20 +2,23 @@ import shutil
 import os
 import zipfile
 import subprocess
+import sys
 
 LogFile = "ZiboUpdateLog.txt"
 
 # path where your actual Zibo is installed
 dir_path = os.path.dirname(os.path.realpath(__file__))
-ZiboPathRoot = "D:/SteamLibrary/steamapps/common/X-Plane 11/Aircraft/Laminar Research"
+
+ZiboPathRoot = 'C:/Program Files (x86)/Steam/steamapps/common/X-Plane 11/Aircraft/Laminar Research'
+ZiboPathRootCustom = 'D:/SteamLibrary/steamapps/common/X-Plane 11/Aircraft/Laminar Research'
 
 # bellow could be:
 # (1) a file name if this script is in the same path of Zip Files or
 # (2) a full path to the zip files (not tested yet)
-ZiboZIP = "327t/B737-800X_3_27t.zip"
+ZiboZIP = "328/B737-800X_3_28.zip"
 AudioBirdFmod = "AXP IMMERSION PACK 737-800X ZIBO V 1807 REV1 STEREO.zip"
-RGModZIP = "327t/B737-800_RG_mod FULL- 3.27t.zip"
-TexturePackRGMod = "TEXTURE PACK_B737-800_RG_mod FULL- 1.0.0f.zip"
+RGModZIP = "328/B737-800_RG_mod FULL- 3.28.zip"
+TexturePackRGMod = "328/TEXTURE PACK_B737-800_RG_mod FULL- 1.0.0f.zip"
 
 #######################################################################################
 if os.path.isfile(LogFile):
@@ -77,6 +80,8 @@ def installRGMod():
     zip_ref.extractall('RGMOD_TEMP')
     zip_ref.close()
 
+    deleteRequiredFiles4RGMod()
+
     log('copying folder [RGMOD_TEMP/objects] to  ['+ZiboPathRoot+'/B737-800XRG_mod/objects]')
     copydir('RGMOD_TEMP/objects', ZiboPathRoot+'/B737-800XRG_mod/objects')
 
@@ -88,10 +93,10 @@ def installRGMod():
 
     log('copying [RGMOD_TEMP/b738_cockpit.obj] to ['+ZiboPathRoot+'/B737-800XRG_mod]')
     shutil.copy2('RGMOD_TEMP/b738_cockpit.obj', ZiboPathRoot+'/B737-800XRG_mod')
-    
-    deleteRequiredFiles4RGMod()
-    shutil.rmtree('RGMOD_TEMP')
+
     installRGModTexture4k()
+    
+    shutil.rmtree('RGMOD_TEMP')
 
 def extracZIBO():
     log('extracting new zibo to ['+ZiboZIP+']')
@@ -242,8 +247,27 @@ log('TexturePackRGMod: '+TexturePackRGMod+'\r\n')
 
 print('>>>>>>>>>>> Before you start, please check the installation paths above. <<<<<<<<<<<<\r\n')
 
+if (os.path.exists(ZiboPathRoot)):
+    # ZiboPathRoot = ZiboPathRootCustom
+    ZiboPathRootCustom = input('Say the path you want to install the aircraft mod\r\n')
+
+if (os.path.exists(ZiboPathRootCustom)):
+    ZiboPathRoot = ZiboPathRootCustom
+else:
+    input('Invalid Path! Press any key to close the program...')
+    sys.exit
+
+# print(mymenu())
+# print(ZiboZIP)
+# print("1. Instalar Zibo 2k")
+# print("2. Instalar Zibo 4k")
+# print("3. Instalar Zibo + RG mod 2k")
+# print("4. Instalar Zibo + RG mod 4k\r\n")
+
+# option = input("Select a number for install\r\n")
+
 print(installZIBOAndRGMod())
 log("Process complete...")
-input("Press Any Key and Enter To Exit...")
+input("Press Enter To Exit...")
 
 file.close()
