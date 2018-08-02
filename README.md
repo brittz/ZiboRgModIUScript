@@ -27,11 +27,19 @@ Auto update your Zibo
 6. Install FMOD by AudioBirdXP;
 7. Install RG mod with texture pack and remove files required from [zibo/object] folder.
 
-If you only have to install Zibo, without RG mod, simple edit the script and remove lines bellow line 96 (KEEP THE LINES 165 and 168).
+If you only have to install Zibo, without RG mod, simple choose option 1 or 2 in the installation screen.
 
 Future improvements:
-- Option in execution time for install only Zibo.
-- Option for select between Zibo 2k or 4k texture.
-- Option for select 2k texture install for RG mod.
+- [x] Option in execution time for install only Zibo;
+- [x] Option for select between Zibo 2k or 4k texture;
+- [x] Option for select 2k texture install for RG mod;
+- [ ] Option to install/uninstall Fuselage with WiFi for RG mod;
+- [ ] Option to install 7B24 Classic_no winglets for RG mod;
+- [ ] Option to install 7B24 SSWinglets for RG mod;
+- [ ] Option to install 7B24 Winglets for RG mod;
+- [ ] Option to install 7B27 SSWinglets_LED for RG mod;
+- [ ] Option to install 7B27 Winglets for RG mod;
+- [ ] Option to install 7B27 Winglets_LED for RG mod.
+- [ ] CMD executable for Windows users (don't need Python installed to run the script) 
 
 If you have any ideas or questions let me know.
