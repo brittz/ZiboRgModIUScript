@@ -59,8 +59,11 @@ def installZIBO():
     copyLiveries(ZiboPathRoot+'/B737-800X_old/liveries', ZiboPathRoot+'/B737-800X/liveries')
     installFMod(ZiboPathRoot+'/B737-800X/fmod')
 
-def installZiboWithRGMod():
-    print('installZiboWithRGMod')
+def switchZIBO2k():
+    shutil.copy2(ZiboPathRoot+'/B737-800X/ACF_2k_4k/b738.acf.2k',ZiboPathRoot+'/B737-800X/b738.acf')
+
+def switchZIBO4k():
+    shutil.copy2(ZiboPathRoot+'/B737-800X/ACF_2k_4k/b738.acf.4k',ZiboPathRoot+'/B737-800X/b738.acf')
 
 def installZIBOAndRGMod():
     log("Starting install...")
@@ -94,7 +97,7 @@ def installRGMod():
     log('copying [RGMOD_TEMP/b738_cockpit.obj] to ['+ZiboPathRoot+'/B737-800XRG_mod]')
     shutil.copy2('RGMOD_TEMP/b738_cockpit.obj', ZiboPathRoot+'/B737-800XRG_mod')
 
-    installRGModTexture4k()
+    # installRGModTexture4k()
     
     shutil.rmtree('RGMOD_TEMP')
 
@@ -221,7 +224,13 @@ def deleteRequiredFiles4RGMod():
     os.remove(Files2DeletePath+'/738cockpit_main_panel_LIT.dds')
     os.remove(Files2DeletePath+'/738cockpit_main_panel.dds')
 
+def installRGModTexture2k():
+    _installRGModTexture(0)
+
 def installRGModTexture4k():
+    _installRGModTexture(1)
+
+def _installRGModTexture(is4k):
     # installing rg mod texture
     log('Extracting rg mod texture zip')
     zip_ref = zipfile.ZipFile(TexturePackRGMod, 'r')
@@ -230,6 +239,10 @@ def installRGModTexture4k():
 
     log('copying folder [TEXTURERGMOD_TEMP/objects] to  ['+ZiboPathRoot+'/B737-800XRG_mod/objects]')
     copydir('TEXTURERGMOD_TEMP/objects', ZiboPathRoot+'/B737-800XRG_mod/objects')
+    
+    if (is4k):
+        copydir('TEXTURERGMOD_TEMP/2k-cockpit texture/objects', ZiboPathRoot+'/B737-800XRG_mod/objects')
+
     shutil.rmtree('TEXTURERGMOD_TEMP')
  
 #######################################################################################
@@ -257,16 +270,40 @@ else:
     input('Invalid Path! Press any key to close the program...')
     sys.exit
 
-# print(mymenu())
-# print(ZiboZIP)
-# print("1. Instalar Zibo 2k")
-# print("2. Instalar Zibo 4k")
-# print("3. Instalar Zibo + RG mod 2k")
-# print("4. Instalar Zibo + RG mod 4k\r\n")
+print(ZiboZIP)
+print("1. Install Zibo 2k")
+print("2. Install Zibo 4k")
+print("3. Install Zibo + RG mod 2k")
+print("4. Install Zibo + RG mod 4k\r\n")
+print("5. Change Zibo to 2k\r\n")
+print("6. Change Zibo to 4k\r\n")
+print("7. Change RG mod to 2k\r\n")
+print("8. Change RG mod to 4k\r\n")
+print("9. Install Fuselage with WiFi for RG mod\r\n")
+print("10. Uninstall Fuselage with WiFi for RG mod\r\n")
 
-# option = input("Select a number for install\r\n")
+option = input("Select a number for install\r\n")
 
-print(installZIBOAndRGMod())
+if (option == "1"):
+    print("Installing Zibo 2k...")
+    print(installZIBO())
+elif (option == "2"):
+    print(installZIBO())
+    print(switchZIBO4k())
+elif (option == "3"):
+    print(installZIBOAndRGMod())
+    print(installRGModTexture2k())
+elif (option == "4"):
+    print(installZIBOAndRGMod())
+    print(installRGModTexture4k())
+elif (option == "5"):
+    print(switchZIBO2k())
+elif (option == "6"):
+    print(switchZIBO4k())
+else:
+    print("Opção inválida")
+
+# print(installZIBOAndRGMod())
 log("Process complete...")
 input("Press Enter To Exit...")
 
