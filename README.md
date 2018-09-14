@@ -20,14 +20,14 @@ Auto update your Zibo
  What do this script do?
 
 1. Install Zibo and RG Mod in diferents folders, so you can have bouth versions in your X-Plane 11;
-2. Rename with suffix "_old" the folders (with you have) of Zibo and Zibo with RG mod. The names must be [B737-800X] and [B737-800XRG_mod];
+2. Rename with suffix "_old" the folders (if you have it) of Zibo and Zibo with RG mod. The names must be [B737-800X] and [B737-800XRG_mod];
 3. Install new Zibo version;
 4. Copy liveries from old Zibo to the new one;
 5. Copy X-Camera file from old to the new one, if you have it;
 6. Install FMOD by AudioBirdXP;
-7. Install RG mod with texture pack and remove files required from [zibo/object] folder.
+7. Install RG mod with texture pack and remove required files from [zibo/object] folder.
 
-If you only have to install Zibo, without RG mod, simple choose option 1 or 2 in the installation screen.
+If you only want to install Zibo, without RG mod, simple choose option 1 or 2 in the installation screen.
 
 Future improvements:
 - [x] Option in execution time for install only Zibo;
