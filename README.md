@@ -19,7 +19,7 @@ Auto update your Zibo
 
  What do this script do?
 
-1. Install Zibo and RG Mod in diferents folders, so you can have bouth versions in you X-Plane 11;
+1. Install Zibo and RG Mod in diferents folders, so you can have bouth versions in your X-Plane 11;
 2. Rename with suffix "_old" the folders (with you have) of Zibo and Zibo with RG mod. The names must be [B737-800X] and [B737-800XRG_mod];
 3. Install new Zibo version;
 4. Copy liveries from old Zibo to the new one;
